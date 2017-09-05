@@ -1,5 +1,13 @@
 = Annotation Editor Remote Operation (AERO) Protocol
 
+== Introduction
+
+The purpose of AERO is to embed a (generic) annotation editor within a service NLP/TDM infrastructure. The protocol focuses on actions triggered by the infrastructure. No dependencies of the annotation editor on the infrastructure are introduced. This ensures that the annotation editor can be embedded in various different infrastructures that support AERO.
+
+An infrastructure often offers multiple services, e.g. a registry/catalog and a storage system. If an annotation editor needs to be aware of these services, it creates a strong coupling of the editor with the surrounding platform and actions such as opening a document or searching for a document can easily require replicating a significant part of the functionality of these other services. Hence, it is more sensible to design a protocol that allows embedding arbitrary annotation editors in a platform without introducing dependencies on the surrounding platform.
+
+Many annotation editors - even web-based ones - do not offer any remote API at all. They cannot be embedded in an infrastructure. Transferring data between the infrastructure and the editor always requires the user importing/exporting the data. AERO provides a set of calls and data structures that enable a basic set of interactions related to managing project, documents, annotations, and curated annotations. As such, it is suitable for annotation editors that support these concepts, e.g. WebAnno, AlvisAE, brat, etc.
+
 == API
 
 === Data Structures
