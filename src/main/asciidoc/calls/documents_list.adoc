@@ -1,0 +1,62 @@
+===== List Documents
+
+List all documents in a project.
+
+[cols="1,2"]
+|===
+| *Title*       | List documents
+| *URL*          | `/projects/{projectId}/documents`
+| *Method*      | GET
+| *Consumes*    | none
+| *Produces*    | application/json;charset=UTF-8 (AERO JSON response)
+| *URL params*
+a|
+* `projectId` - ID of the project (mandatory)
+| *Data params* | none
+| *Success response*
+a|
+Code 200::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [],
+  "body": [
+    {
+      "id": "32",
+      "name": "sample.txt",
+      "state": "CURATION-FINISHED"
+    },
+    {
+      "id": "33",
+      "name": "essay001.xmi",
+      "state": "NEW"
+    },
+    {
+      "id": "34",
+      "name":"essay002.xmi",
+      "state":"NEW"
+    },
+    {
+      "id": "18",
+      "name":"fi3le.txt",
+      "state":"NEW"
+    }
+  ]
+}
+----
+| *Error response*
+a| 
+Code 404 - Project not found::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "ERROR", "text": "Project does not exist."}
+  ] 
+}
+----
+|===

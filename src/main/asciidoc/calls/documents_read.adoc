@@ -1,0 +1,46 @@
+===== Read Document
+
+Exports the specified document. Unless specified otherwise, the format in which the documents is exported corresponds to the format in which the document was imported or to the default format of the application. The application may choose to indicate the produced format by setting a media type other than application/octet-stream for the response.
+
+NOTE: It was considered to use content-negotiation instead of the "format" parameter. However, content-negotiation typically uses common mime-types and for many of the formats usually used by annotation editors, there are no suitable mime-types. E.g. one could use "text/tab-separated-values" for CoNLL formats, but that would not convey sufficient information about the semantics of the columns to enable the import/export of the document / which specific CoNLL year to use.
+
+[cols="1,2"]
+|===
+| *Title*       | Export document
+| *URL*          | `/projects/{projectId}/documents/{documentId}[?format={format}]`
+| *Method*      | GET
+| *Consumes*    | none
+| *Produces*    
+a| 
+* application/octet-stream
+* application/json;charset=UTF-8 (AERO JSON response)
+| *URL params*
+a|
+* `projectId` - ID of the project (mandatory)
+| *Data params*
+a|
+* `name` - name of the document
+* `documentId` - ID of the document (mandatory)
+* `format` - format of annotations
+** `AUTO` - plain text or original format (depending on what is possible
+** `ORIGINAL` - only original format allowed
+** `TEXT` - only plain text
+** Other values depending on the format supported by the AE
+| *Success response*
+a|
+Code 200::
+    Content: document
+| *Error response*
+a| 
+Code 404 - Project or document not found::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "ERROR", "text": "Project does not exist."}
+  ] 
+}
+----
+|===

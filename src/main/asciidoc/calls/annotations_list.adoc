@@ -1,0 +1,57 @@
+===== List Annotations
+
+List annotations in the project.
+
+[cols="1,2"]
+|===
+| *Title*       | List annotations
+| *URL*          | `/projects/{projectId}/documents/{documentId}/annotations`
+| *Method*      | GET
+| *Consumes*    | none
+| *Produces*    | application/json;charset=UTF-8 (AERO JSON response)
+| *URL params*
+a|
+* `projectId` - ID of the project (mandatory)
+* `documentId - ID of the document (mandatory)
+| *Data params* | none
+| *Success response*
+a|
+Code 201::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [],
+  "body": [
+    {
+      "user":"richard", 
+      "state":"NEW"
+    },
+    {
+      "user":"anshul", 
+      "state":"IN-PROGRESS",
+      "timestamp":"2016-09-24T10:43:54+0200" 
+    },
+    {
+      "user":"abc",
+      "state":"COMPLETE",
+      "timestamp":"2016-09-24T10:46:28+0200"
+    }
+  ]
+}
+----
+| *Error response*
+a| 
+Code 404 - Project or document not found::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "ERROR", "text": "Project does not exist."}
+  ] 
+}
+----
+|===

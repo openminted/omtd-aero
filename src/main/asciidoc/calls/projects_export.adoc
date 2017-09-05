@@ -1,0 +1,34 @@
+===== Export Project
+
+Exports the whole project as a ZIP archive. This archive can be imported again using the "Import project" action.
+
+[cols="1,2"]
+|===
+| *Title*       | Export project
+| *URL*          | `/projects/{projectId}/export.zip`
+| *Method*      | GET
+| *Consumes*    | none
+| *Produces*
+a| 
+* application/zip
+* application/json;charset=UTF-8 (AERO JSON response)
+| *URL params*  | none
+| *Data params* | none
+| *Success response*
+a|
+Code 200::
+    Content: ZIP archive
+| *Error response*
+a| 
+Code 403 - Access forbidden::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "ERROR", "text": "Permission denied."}
+  ] 
+}
+----
+|===

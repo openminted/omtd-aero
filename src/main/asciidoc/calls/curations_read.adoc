@@ -1,0 +1,42 @@
+===== Read Curations
+
+Read/export curated annotations for a document.
+
+[cols="1,2"]
+|===
+| *Title*       | Read curations
+| *URL*          | `/projects/{projectId}/documents/{documentId}/curation[?format={format}]`
+| *Method*      | GET
+| *Consumes*    | none
+| *Produces*    
+a| 
+* application/octet-stream
+* application/json;charset=UTF-8 (AERO JSON response)
+| *URL params*
+a|
+* `projectId` - ID of the project (mandatory)
+* `documentId` - ID of the document (mandatory)
+* `format` - format of annotations
+** `AUTO` - plain text or original format (depending on what is possible
+** `ORIGINAL` - only original format allowed
+** `TEXT` - only plain text
+** Other values depending on the format supported by the AE 
+| *Data params* | none
+| *Success response*
+a|
+Code 200::
+     Content: the curated annotation file
+| *Error response*
+a| 
+Code 404 - Project, document, or annotation not found::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "ERROR", "text": "Project does not exist."}
+  ] 
+}
+----
+|===

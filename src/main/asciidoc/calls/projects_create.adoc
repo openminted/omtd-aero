@@ -1,0 +1,52 @@
+===== Create Project
+
+Creates a new project. By default, the user that invokes this action receives permissions on the project equivalent to those of a project manager, e.g. the user should be able to add/remove documents to/from the project. If the "creator" parameter is set, then these permissions are granted to the specified user instead of the current user. This is important such that the PLATFORM can invoke this action using an administrative user account on behalf of a real user. The "creator" should in this case be the real user, not the administrative user used by the PLATFORM. 
+
+
+[cols="1,2"]
+|===
+| *Title*       | Create project
+| *URL*          | `/projects`
+| *Method*      | POST
+| *Consumes*    | multipart/form-data
+| *Produces*    | application/json;charset=UTF-8 (AERO JSON response)
+| *URL params*  | none
+| *Data params* 
+a|
+* `name` - project name (required)
+* `creator` - username of the owner of the project (optional)
+| *Success response*
+a|
+Code 201::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [],
+  "body": {
+    "id": "13", 
+    "name": "Test"
+  }
+}
+----
+| *Error response*
+a| 
+Code 403 - Access forbidden::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "ERROR", "text": "Permission denied."}
+  ] 
+}
+----
+
+Code 404 - creator user not found::
+    Content: AERO JSON response
+
+Code: 409 - Project with the name already exists::
+    Content: AERO JSON response
+|===

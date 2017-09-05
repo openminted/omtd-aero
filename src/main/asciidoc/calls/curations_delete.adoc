@@ -1,0 +1,43 @@
+===== Delete Curations
+
+Delete curated annotations for a document.
+
+[cols="1,2"]
+|===
+| *Title*       | Delete curations
+| *URL*          | `/projects/{projectId}/documents/{documentId}/curation`
+| *Method*      | DELETE
+| *Consumes*    | application/octet-stream
+| *Produces*    | application/json;charset=UTF-8 (AERO JSON response)
+| *URL params*
+a|
+* `projectId` - ID of the project (mandatory)
+* `documentId` - ID of the document (mandatory)
+| *Data params* | none
+| *Success response*
+a|
+Code 200::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "INFO", "text": "Curation deleted."}
+  ] 
+}
+----
+| *Error response*
+a| 
+Code 404 - Project, document, or curated annotations not found::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "ERROR", "text": "Document not found."}
+  ] 
+}
+----
+|===

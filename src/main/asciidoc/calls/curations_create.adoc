@@ -1,0 +1,47 @@
+===== Create Curations
+
+Create/import curated annotations for a document.
+
+[cols="1,2"]
+|===
+| *Title*       | Create curations
+| *URL*          | `/projects/{projectId}/documents/{documentId}/curation`
+| *Method*      | POST
+| *Consumes*    | application/octet-stream
+| *Produces*    | application/json;charset=UTF-8 (AERO JSON response)
+| *URL params*
+a|
+* `projectId` - ID of the project (mandatory)
+* `documentId` - ID of the document (mandatory)
+| *Data params*
+a|
+* `format` - format of annotations depending on the format supported by the AE
+* `content` - the curated annotations in the specified format
+* `state` - a document state (optional, allowed values: `CURATION-IN-PROGRESS` (default), `CURATION-COMPLETE`) 
+| *Success response*
+a|
+Code 200::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "INFO", "text": "Curation imported."}
+  ] 
+}
+----
+| *Error response*
+a| 
+Code 404 - Project, document, or curated annotations not found::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "ERROR", "text": "Document not found."}
+  ] 
+}
+----
+|===

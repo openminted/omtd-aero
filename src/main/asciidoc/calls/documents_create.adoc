@@ -1,0 +1,50 @@
+===== Create Document
+
+Create/import a new document in the project.
+
+[cols="1,2"]
+|===
+| *Title*       | Create document
+| *URL*          | `/projects/{projectId}/documents`
+| *Method*      | POST
+| *Consumes*    | application/octet-stream
+| *Produces*    | application/json;charset=UTF-8 (AERO JSON response)
+| *URL params*
+a|
+* `projectId` - ID of the project (mandatory)
+| *Data params*
+a|
+* `name` - name of the document
+* `format` - format of documents
+** `TEXT` - only plain text (currently the only format that must be supported by all AERO servers; servers may support other formats)
+* `content` - the document in the specified format (binary)
+* `state` - a document state  (optional, allowed values: `NEW` (default), `ANNOTATION-IN-PROGRESS`, `ANNOTATION-FINISHED`) 
+| *Success response*
+a|
+Code 201::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [],
+  "body": {
+    "id": "33",
+    "name": "Essay 12” 
+  }
+}
+----
+| *Error response*
+a| 
+Code 404 - Project not found::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "ERROR", "text": "Project does not exist."}
+  ] 
+}
+----
+|===

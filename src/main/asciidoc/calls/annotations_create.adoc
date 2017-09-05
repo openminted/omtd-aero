@@ -1,0 +1,55 @@
+===== Create Annotations
+
+Create/import annotations on top of an already existing document. We consider here only the simple case which is that if there are already any existing annotations for the designated user, they will be replaced with the annotations that are uploaded - they will not be merged.
+
+[cols="1,2"]
+|===
+| *Title*       | Create annotations
+| *URL*          | `/projects/{projectId}/documents/{documentId}/annotations/{annotator}`
+| *Method*      | POST
+| *Consumes*    | application/octet-stream
+| *Produces*    | application/json;charset=UTF-8 (AERO JSON response)
+| *URL params*
+a|
+* `projectId` - ID of the project (mandatory)
+* `documentId - ID of the document (mandatory)
+* `annotator - ID of the user who created the annotations (mandatory)
+| *Data params* | none
+| *Success response*
+a|
+Code 200::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "INFO", "text": "Annotations imported."}
+  ] 
+}
+----| *Error response*
+a| 
+Code 404 - Project, document, or annotation not found::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "ERROR", "text": "Project does not exist."}
+  ] 
+}
+----
+
+Code 415 - Unsupported format::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "ERROR", "text": "Unsupported format."}
+  ] 
+}
+----
+|===

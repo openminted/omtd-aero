@@ -1,0 +1,97 @@
+= Annotation Editor Remote Operation (AERO) Protocol
+
+== API
+
+=== Data Structures
+
+==== AERO JSON response
+
+The response provides an envelop for a returned data structure. In addition to the actual response in the “body”, the envelope contains a field for “messages”. Example:
+
+[source,json]
+----
+{
+  "messages": [
+    { "level": "WARN", "text": "Internal error while accessing document 10.",
+  ],
+  "body": [
+    {
+      "id": "32",
+      "name": "sample.txt",
+      "state": "CURATION_FINISHED"
+    },
+    {
+      "id": "33",
+      "name": "essay001.xmi",
+      "state": "NEW"
+    }
+  ]
+}
+----
+
+A message always contains a “level” and a “text” field. The text must be a string. Acceptable values for the “level” field are the strings:
+
+.Log levels
+* `ERROR` - if there is an error, then typically the body is empty.
+* `WARN` - if there is a warning, then the body might be incomplete. 
+* `INFO` - an informative message, typically a confirmation message that the action requested by the client has been performed.
+* `DEBUG` - an AERO server should never generate debug messages unless specifically configured to do so by its administrator
+
+==== Constant Values
+
+.Document status
+* `NEW`
+* `ANNOTATION-IN-PROGRESS`
+* `ANNOTATION-COMPLETE`
+* `CURATION-IN-PROGRESS`
+* `CURATION-COMPLETE`
+
+.Annotation status
+* `NEW`
+* `LOCKED`
+* `IN-PROGRESS`
+* `COMPLETE`
+
+=== Calls
+
+==== Projects
+
+include::{include-dir}/calls/projects_list.adoc[]
+
+include::{include-dir}/calls/projects_create.adoc[]
+
+include::{include-dir}/calls/projects_delete.adoc[]
+
+include::{include-dir}/calls/projects_import.adoc[]
+
+include::{include-dir}/calls/projects_export.adoc[]
+
+==== Documents
+
+include::{include-dir}/calls/documents_list.adoc[]
+
+include::{include-dir}/calls/documents_create.adoc[]
+
+include::{include-dir}/calls/documents_read.adoc[]
+
+include::{include-dir}/calls/documents_delete.adoc[]
+
+==== Annotations
+
+include::{include-dir}/calls/annotations_list.adoc[]
+
+include::{include-dir}/calls/annotations_create.adoc[]
+
+include::{include-dir}/calls/annotations_read.adoc[]
+
+include::{include-dir}/calls/annotations_delete.adoc[]
+
+==== Curations
+
+include::{include-dir}/calls/curations_list.adoc[]
+
+include::{include-dir}/calls/curations_create.adoc[]
+
+include::{include-dir}/calls/curations_read.adoc[]
+
+include::{include-dir}/calls/curations_delete.adoc[]

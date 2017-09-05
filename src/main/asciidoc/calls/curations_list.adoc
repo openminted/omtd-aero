@@ -1,0 +1,4 @@
+===== List Curations
+
+There is no dedicated call to list curations. The status of the curation process is tracked at the document level and is available via the "list documents" call.
+

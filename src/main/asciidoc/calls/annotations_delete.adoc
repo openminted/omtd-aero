@@ -1,0 +1,43 @@
+===== Delete Annotations
+
+Delete the annotations of a user on a given document from a project.
+
+[cols="1,2"]
+|===
+| *Title*       | Delete annotations
+| *URL*          | `/projects/{projectId}/documents/{documentId}/annotations/{annotator}`
+| *Method*      | DELETE
+| *Consumes*    | none
+| *Produces*    | application/json;charset=UTF-8 (AERO JSON response)
+| *URL params*
+a|
+* `projectId` - ID of the project (mandatory)
+* `documentId - ID of the document (mandatory)
+* `annotator - ID of the user who created the annotations (mandatory)
+| *Data params* | none
+| *Success response*
+a|
+Code 200::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "INFO", "text": "Annotations deleted."}
+  ] 
+}
+----| *Error response*
+a| 
+Code 404 - Project, document, or annotation not found::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "ERROR", "text": "Project does not exist."}
+  ] 
+}
+----
+|===

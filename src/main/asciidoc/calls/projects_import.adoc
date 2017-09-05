@@ -1,0 +1,45 @@
+===== Import Project
+
+Imports a ZIP archive containing a previously exported project. If a project with the name as indicated by the metadata in the ZIP archive already exists, the imported project is created under a different name. E.g. if the name of the project is "My project" and a project by this name already exists, then the system can create the project under the name "My project 1". The name of the created project and its ID are returned as part of the result.
+
+
+[cols="1,2"]
+|===
+| *Title*       | Import project
+| *URL*          | `/projects/import`
+| *Method*      | POST
+| *Consumes*    | none
+| *Produces*    | application/json;charset=UTF-8 (AERO JSON response)
+| *URL params*
+a|
+* `file` - ZIP file 
+| *Data params* | none
+| *Success response*
+a|
+Code 200::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [],
+  "body": {
+    "id": "13", 
+    "name": "Test"
+  }
+}
+----
+| *Error response*
+a| 
+Code 403 - Access forbidden::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "ERROR", "text": "Permission denied."}
+  ] 
+}
+----
+|===

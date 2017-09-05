@@ -1,0 +1,52 @@
+===== List Projects
+
+Produce a list of all projects accessible by the current user.
+
+[cols="1,2"]
+|===
+| *Title*       | List projects
+| *URL*          | `/projects`
+| *Method*      | GET
+| *Consumes*    | none
+| *Produces*    | application/json;charset=UTF-8 (AERO JSON response)
+| *URL params*  | none
+| *Data params* | none
+| *Success response*
+a|
+Code 200::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [],
+  "body":[
+    {
+      id: "1"
+      name: "Project A",
+    },
+    {
+      id: "5"
+      name: "Project B",
+    },
+    {
+      id: "28"
+      name: "Project C",
+    }
+  ]
+}
+----
+| *Error response*
+a| 
+Code 403 - Access forbidden::
++
+.Example
+[source,json,l]
+----
+{
+  "messages": [
+    { "level": "ERROR", "text": "Permission denied."}
+  ] 
+}
+----
+|===
