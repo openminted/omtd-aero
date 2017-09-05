@@ -10,11 +10,13 @@ Many annotation editors - even web-based ones - do not offer any remote API at a
 
 == API
 
+This section explains the data structures and API calls defined by AERO.
+
 === Data Structures
 
 ==== AERO JSON response
 
-The response provides an envelop for a returned data structure. In addition to the actual response in the “body”, the envelope contains a field for “messages”. Example:
+The response provides an envelop for a returned data structure. In addition to the actual response in the "body", the envelope contains a field for “messages”. Example:
 
 [source,json]
 ----
@@ -37,7 +39,7 @@ The response provides an envelop for a returned data structure. In addition to t
 }
 ----
 
-A message always contains a “level” and a “text” field. The text must be a string. Acceptable values for the “level” field are the strings:
+A message always contains a "level" and a "text" field. The text must be a string. Acceptable values for the "level" field are the strings:
 
 .Log levels
 * `ERROR` - if there is an error, then typically the body is empty.
@@ -61,6 +63,8 @@ A message always contains a “level” and a “text” field. The text must be
 * `COMPLETE`
 
 === Calls
+
+This section explains the API calls defined by AERO. All the calls are relative to a base URL which depends on the URL where the annotation tool is hosted. It is recommended but not mandatory that the URL includes `aero` and `v1`, e.g. `http://annotool.myorg.com/api/aero/v1/`.
 
 ==== Projects
 
