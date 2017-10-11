@@ -22,16 +22,16 @@ Code 200::
   "messages": [],
   "body":[
     {
-      id: "1"
-      name: "Project A",
+      "id": "1",
+      "name": "Project A"
     },
     {
-      id: "5"
-      name: "Project B",
+      "id": "5",
+      "name": "Project B"
     },
     {
-      id: "28"
-      name: "Project C",
+      "id": "28",
+      "name": "Project C"
     }
   ]
 }
