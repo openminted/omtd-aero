@@ -14,7 +14,11 @@ a|
 * `projectId` - ID of the project (mandatory)
 * `documentId - ID of the document (mandatory)
 * `annotator - ID of the user who created the annotations (mandatory)
-| *Data params* | none
+| *Data params*
+a|
+* `format` - format of annotations
+* `content` - the document in the specified format (binary)
+* `state` - an annotation state  (optional, allowed values: `NEW` (default), `IN-PROGRESS`, `COMPLETE`) 
 | *Success response*
 a|
 Code 200::
