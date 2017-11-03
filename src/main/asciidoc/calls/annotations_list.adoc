@@ -12,7 +12,7 @@ List annotations in the project.
 | *URL params*
 a|
 * `projectId` - ID of the project (mandatory)
-* `documentId - ID of the document (mandatory)
+* `documentId` - ID of the document (mandatory)
 | *Data params* | none
 | *Success response*
 a|

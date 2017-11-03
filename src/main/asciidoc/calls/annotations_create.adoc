@@ -12,8 +12,8 @@ Create/import annotations on top of an already existing document. We consider he
 | *URL params*
 a|
 * `projectId` - ID of the project (mandatory)
-* `documentId - ID of the document (mandatory)
-* `annotator - ID of the user who created the annotations (mandatory)
+* `documentId` - ID of the document (mandatory)
+* `annotator` - ID of the user who created the annotations (mandatory)
 | *Data params*
 a|
 * `format` - format of annotations
