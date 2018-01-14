@@ -21,7 +21,7 @@ a|
 * `state` - an annotation state  (optional, allowed values: `NEW` (default), `IN-PROGRESS`, `COMPLETE`) 
 | *Success response*
 a|
-Code 200::
+Code 201 - Created::
 +
 .Example
 [source,json,l]
