@@ -28,7 +28,7 @@ a|
 ** Other values depending on the format supported by the AE
 | *Success response*
 a|
-Code 200::
+Code 200 - OK::
     Content: document
 | *Error response*
 a| 

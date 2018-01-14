@@ -13,7 +13,7 @@ Produce a list of all projects accessible by the current user.
 | *Data params* | none
 | *Success response*
 a|
-Code 200::
+Code 200 - OK::
 +
 .Example
 [source,json,l]
