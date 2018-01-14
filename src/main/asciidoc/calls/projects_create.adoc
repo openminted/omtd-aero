@@ -17,7 +17,7 @@ a|
 * `creator` - username of the owner of the project (optional)
 | *Success response*
 a|
-Code 201::
+Code 201 - Created::
 +
 .Example
 [source,json,l]

@@ -25,7 +25,7 @@ a|
 | *Data params* | none
 | *Success response*
 a|
-Code 200::
+Code 200 - OK::
      Content: the annotation file
 | *Error response*
 a| 

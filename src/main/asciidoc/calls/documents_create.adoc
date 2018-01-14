@@ -21,7 +21,7 @@ a|
 * `state` - a document state  (optional, allowed values: `NEW` (default), `ANNOTATION-IN-PROGRESS`, `ANNOTATION-FINISHED`) 
 | *Success response*
 a|
-Code 201::
+Code 201 - Created::
 +
 .Example
 [source,json,l]
