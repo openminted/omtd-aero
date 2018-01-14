@@ -16,7 +16,7 @@ a|
 | *Data params* | none
 | *Success response*
 a|
-Code 201::
+Code 200 - OK::
 +
 .Example
 [source,json,l]
