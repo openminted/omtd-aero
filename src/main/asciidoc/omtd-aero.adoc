@@ -107,3 +107,8 @@ include::{include-dir}/calls/curations_create.adoc[]
 include::{include-dir}/calls/curations_read.adoc[]
 
 include::{include-dir}/calls/curations_delete.adoc[]
+
+=== Event Notifications
+
+include::{include-dir}/notifications/document_state_changed.adoc[]
+
