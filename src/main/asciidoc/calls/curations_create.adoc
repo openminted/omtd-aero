@@ -20,7 +20,7 @@ a|
 * `state` - a document state (optional, allowed values: `CURATION-IN-PROGRESS` (default), `CURATION-COMPLETE`) 
 | *Success response*
 a|
-Code 200::
+Code 201 - Created::
 +
 .Example
 [source,json,l]
