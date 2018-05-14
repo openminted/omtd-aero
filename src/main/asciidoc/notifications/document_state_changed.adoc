@@ -1,0 +1,28 @@
+===== Document State Changed
+
+[cols="1,2"]
+|===
+| *Title*       | Document State Changed
+| *Method*      | POST
+| *Consumes*    | application/json;charset=UTF-8 (AERO JSON event notification)
+| *Example*
+a|
+[source,json,l]
+----
+{ 
+  "source": "https://annotationeditor.io/aero",
+  "token": "D34DB33F",
+  "events": [{
+    "event": "DOCUMENT_STATE_CHANGED",
+    "body": {
+      "projectId":             10,
+      "projectName":           "My project",
+      "documentId":            25,
+      "documentName":          "Document 1",
+      "previousDocumentState": "NEW",
+      "documentState":         "ANNOTATION_IN_PROGRESS"
+    }
+  }]
+}
+----
+|===
